@@ -29,7 +29,9 @@ ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 RUN useradd -m -d /home/jenkins -s /bin/sh jenkins &&\
     echo "jenkins:jenkins" | chpasswd
 
-RUN mkdir -p /home/jenkins/.m2/
+USER jenkins
+
+RUN mkdir -p /home/jenkins/.m2/repository
 
 # Standard SSH port
 EXPOSE 22
