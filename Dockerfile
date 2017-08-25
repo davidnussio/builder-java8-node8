@@ -30,7 +30,8 @@ RUN useradd -m -d /home/jenkins -s /bin/sh jenkins &&\
     echo "jenkins:jenkins" | chpasswd
 
 RUN mkdir -p /home/jenkins/.m2/repository && \
-    chown -R jenkins:jenkins /home/jenkins
+    mkdir -p /data/jenkins/ && \
+    chown -R jenkins:jenkins /home/jenkins /data/jenkins
 
 # Standard SSH port
 EXPOSE 22
