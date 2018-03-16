@@ -1,5 +1,5 @@
 # This Dockerfile is used to build an image containing basic stuff to be used as a Jenkins slave build node.
-FROM node:8-slim
+FROM node:9-slim
 MAINTAINER David Nussio <david.nussio@gmail.com>
 
 # Add locales after locale-gen as needed
@@ -32,6 +32,8 @@ RUN useradd -m -d /home/jenkins -s /bin/sh jenkins &&\
 RUN mkdir -p /home/jenkins/.m2/repository && \
     mkdir -p /data/jenkins/ && \
     chown -R jenkins:jenkins /home/jenkins /data/jenkins
+
+RUN curl -0 -L http://npmjs.org/install.sh | sh
 
 # Standard SSH port
 EXPOSE 22
