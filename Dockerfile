@@ -33,7 +33,7 @@ RUN mkdir -p /home/jenkins/.m2/repository && \
     mkdir -p /data/jenkins/ && \
     chown -R jenkins:jenkins /home/jenkins /data/jenkins
 
-RUN curl -0 -L http://npmjs.org/install.sh | sh
+#RUN curl -0 -L http://npmjs.org/install.sh | sh
 
 # Standard SSH port
 EXPOSE 22
