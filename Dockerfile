@@ -26,7 +26,7 @@ RUN  echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true
 ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 
 # Set user jenkins to the image
-RUN useradd -u 9000 -g 9000 -m -d /home/jenkins -s /bin/sh jenkins &&\
+RUN useradd -u 9000 -m -d /home/jenkins -s /bin/sh jenkins &&\
     echo "jenkins:jenkins" | chpasswd
 
 RUN mkdir -p /home/jenkins/.m2/repository && \
