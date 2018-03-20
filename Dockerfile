@@ -26,14 +26,14 @@ RUN  echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true
 ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 
 # Set user jenkins to the image
-RUN useradd -m -d /home/jenkins -s /bin/sh jenkins &&\
+RUN useradd -u 9000 -g 9000 -m -d /home/jenkins -s /bin/sh jenkins &&\
     echo "jenkins:jenkins" | chpasswd
 
 RUN mkdir -p /home/jenkins/.m2/repository && \
     mkdir -p /data/jenkins/ && \
     chown -R jenkins:jenkins /home/jenkins /data/jenkins
 
-#RUN curl -0 -L http://npmjs.org/install.sh | sh
+RUN curl -0 -L http://npmjs.org/install.sh | sh
 
 # Standard SSH port
 EXPOSE 22
